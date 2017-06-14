@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script>
+function calcular (val) {
+    var sub = 0;	
+    var iva =0;
+    var tot=0;
+    val = parseInt(val); // Convertir el valor a un entero (número).
+	
+    sub = document.getElementById('sub').innerHTML;
+	
+    // Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
+    sub = (sub == null || sub == undefined || sub == "") ? 0 : sub;
+	
+    /* Esta es la suma del subtotal. */
+    sub = (parseInt(sub) + parseInt(val));
+	
+    // Colocar el resultado del subtotal
+    document.getElementById('sub').innerHTML = sub;
+
+
+/*calcular el IVA
+    IVA = document.getElementById('iva').innerHTML;
+
+    IVA = (parseInt(sub) * parseInt(IVA) );
+
+    document.getElementById('iva').innerHTML = sub;
+*/
+
+
+	//calcular el total
+    iva = document.getElementById('iva').innerHTML;
+
+    iva = ((parseInt(sub) * 0.12) );
+
+    document.getElementById('iva').innerHTML = iva;
+
+
+        total = document.getElementById('tot').innerHTML;
+
+    total = ((parseInt(sub) + iva) );
+
+    document.getElementById('tot').innerHTML = total;
+}
+
+</script>
+<body>
+
+<table border="2">
+  <tr >
+    <td colspan="2"><h1>LOS MOTES DEL BENITO - TIENDA ONLINE</h1>
+</td>
+  </tr>
+  <tr>
+    <td colspan="2"><h3>Cualquier plato a $0.50:  choclomote, con chicharrón</h3></td>
+  </tr>
+  <tr>
+    <td><img src="mote.jpg" width="250" height="250"></td>
+    <td>
+Nombre: <input></input>
+</br>
+<span># de choclomotes:</span>
+<input type="text" id="txt_campo_1" onchange="calcular(this.value);" />
+<br/ >
+<span># de con chicharrón:</span>
+<input type="text" id="txt_campo_2" onchange="calcular(this.value);" />
+<br/ >
+En cuantos minutos viene por su pedido: <input></input><br/ >
+<span>Subtotal:</span><span id="sub"></span>
+</br>
+<span>Iva: </span> <span id="iva"></span>
+</br>
+<span>Total: </span> <span id="tot"></span>
+
+    </td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+
+
+</body>
+</html>
